@@ -114,6 +114,8 @@ namespace DietProgress
                 return SendDiscord(latestHealthData, healthData.height, latestDate);
             });
 
+            var result = sendDiscord.Result;
+
             return req.CreateResponse(HttpStatusCode.OK, "");
         }
 
@@ -259,7 +261,7 @@ namespace DietProgress
 
             /* BMI */
             var cm = double.Parse(height) / 100;
-            var weight = double.Parse(dic[HealthTag.WEIGHT.ToString()].ToString());
+            var weight = double.Parse(dic[((int)HealthTag.WEIGHT).ToString()].ToString());
             var bmi = Math.Round((weight / Math.Pow(cm, 2)), 2);
 
             /* ñ⁄ïWíBê¨ó¶ */
